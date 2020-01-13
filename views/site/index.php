@@ -2,52 +2,52 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'PlantSoft';
 ?>
 <div class="site-index">
-
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
+    <div class="container bg bg-info" style="background-image: url('https://i.ytimg.com/vi/rR4wOviXFMI/maxresdefault.jpg'); background-repeat: no-repeat; background-size: cover; background-position: left;">
         <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+            <div class="col">
+                <div class="jumbotron">
+                    <h1 style="color: white">Consigue una planta</h1>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                    <p class="lead" style="color: white">Compra tu propia planta ornamental en linea facilemte.</p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+                </div>
             </div>
         </div>
+    </div>
+<br>
+    <div class="body-content">
+        <div class="container">
+            <div class="row">
+                <div class="col bg-secondary p-3 mb-2">
+                    <h1 style="text-align: center;">Descuentos</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container bg bg-info">
+            <div class="row">
+                <div class="col-lg-3">
+                    <h2 style="text-align: center;">Planta 1</h2>
+                    <img class="img-fluid container img-thumbnail"  src="images\20200109_092608.jpg">
 
+                </div>
+                <div class="col-lg-3">
+                    <h2 style="text-align: center;">Planta 2</h2>
+                    <img class="img-fluid container img-thumbnail"  src="images\20200109_092622.jpg">
+                </div>
+                
+                <div class="col-lg-3">
+                    <h2 style="text-align: center;">Planta 3</h2>
+                    <img class="img-fluid container img-thumbnail"  src="images\20200109_092608.jpg">
+                </div>
+
+                <div class="col-lg-3">
+                    <h2 style="text-align: center;">Planta 4</h2>
+                    <img class="img-fluid container img-thumbnail"  src="images\20200109_094012.jpg">   
+                </div>
+            </div>
+        </div>
     </div>
 </div>

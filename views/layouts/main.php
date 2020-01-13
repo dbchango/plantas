@@ -38,9 +38,30 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+
+            ['label' => 'Nosotros', 'url' => ['/site/about']],
+            ['label' => 'Contactanos', 'url' => ['/site/contact']],
+
+
+            ['label' => 'Comprar',  'items' => [
+                ['label' => 'Plantas', 'url' => ['/planta/index']],
+                ['label' => 'Tipos de Plantas', 'items' => [
+                    ['label' => 'Rosas'],
+                    ['label' => 'Claveles'],
+                    ],
+                ],
+                ],
+            ],
+
+            ['label' => 'Usuario', 'items' => [
+                ['label' => 'Compras(facturas)', 'url' => ['/factura/index']],
+                ['label' => 'Informacion', 'url' => ['/cliente/index']],
+
+                ],
+            ],
+
+
+
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
@@ -51,6 +72,7 @@ AppAsset::register($this);
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()
+                
                 . '</li>'
             )
         ],
