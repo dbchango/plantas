@@ -19,34 +19,100 @@ $this->title = 'PlantSoft';
     </div>
 <br>
     <div class="body-content">
+
         <div class="container">
             <div class="row">
-                <div class="col bg-secondary p-3 mb-2">
+                
+                
+            <div class="col bg-secondary p-3 mb-2">
                     <h1 style="text-align: center;">Descuentos</h1>
                 </div>
             </div>
         </div>
-        <div class="container bg bg-info">
+        <div class="container ">
             <div class="row">
-                <div class="col-lg-3">
-                    <h2 style="text-align: center;">Planta 1</h2>
-                    <img class="img-fluid container img-thumbnail"  src="images\20200109_092608.jpg">
+                <div class="col-lg-3 bg">
+                    <div class="row">
+                        <div class="col">
+                            <h2 style="text-align: center;">Planta 1</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <img class="img-fluid container img-thumbnail"  src="images\20200109_092608.jpg">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center">
+                            <p>Precio: </p>
+                            <button class="btn responsive btn-succes">Comprar</button>
+                        </div>
+                    </div>
 
                 </div>
-                <div class="col-lg-3">
-                    <h2 style="text-align: center;">Planta 2</h2>
-                    <img class="img-fluid container img-thumbnail"  src="images\20200109_092622.jpg">
+                <div class="col-lg-3 bg">
+                    <div class="row">
+                        <div class="col">
+                            <h2 style="text-align: center;">Planta 1</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <img class="img-fluid container img-thumbnail"  src="images\20200109_095234.jpg">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center">
+                            <p>Precio: </p>
+                            <button class="btn responsive btn-succes">Comprar</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-3 bg">
+                    <div class="row">
+                        <div class="col">
+                            <h2 style="text-align: center;">Planta 1</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <img class="img-fluid container img-thumbnail"  src="images\20200109_095856.jpg">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center">
+                            <p>Precio: </p>
+                            <button class="btn responsive btn-succes">Comprar</button>
+                        </div>
+                    </div>
+
                 </div>
                 
-                <div class="col-lg-3">
-                    <h2 style="text-align: center;">Planta 3</h2>
-                    <img class="img-fluid container img-thumbnail"  src="images\20200109_092608.jpg">
+               
+
+                <div class="col-lg-3 bg">
+                    <div class="row">
+                        <div class="col">
+                            <h2 style="text-align: center;">Planta 1</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <img class="img-fluid container img-thumbnail"  src="images\20200109_100259.jpg">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center">
+                            <p>Precio: </p>
+                            <button class="btn responsive btn-succes">Comprar</button>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="col-lg-3">
-                    <h2 style="text-align: center;">Planta 4</h2>
-                    <img class="img-fluid container img-thumbnail"  src="images\20200109_094012.jpg">   
-                </div>
+
+                
             </div>
         </div>
     </div>

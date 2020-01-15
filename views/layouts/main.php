@@ -16,6 +16,7 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+    
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,6 +44,7 @@ AppAsset::register($this);
             ['label' => 'Contactanos', 'url' => ['/site/contact']],
 
 
+
             ['label' => 'Comprar',  'items' => [
                 ['label' => 'Plantas', 'url' => ['/planta/index']],
                 ['label' => 'Tipos de Plantas', 'items' => [
@@ -53,23 +55,26 @@ AppAsset::register($this);
                 ],
             ],
 
-            ['label' => 'Usuario', 'items' => [
-                ['label' => 'Compras(facturas)', 'url' => ['/factura/index']],
-                ['label' => 'Informacion', 'url' => ['/cliente/index']],
-
-                ],
-            ],
-
-
 
             Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
+                ['label' => 'Opciones', 'items' => [
+                    ['label' => 'Registrarse', 'url' => ['/site/register']],
+                    ['label' => 'Login', 'url' => ['/site/login']],
+                    ],
+                ]
+                
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
                     'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
+                    ['label' => 'Opciones', 'items' => [
+                    ['label' => 'Editar Perfil', 'url' => ['/site/register']],
+                    ['label' => 'Compras(facturas)', 'url' => ['/factura/index']],
+                    ['class' => 'btn btn-link logout'],
+                    ],
+                ]
+
                 )
                 . Html::endForm()
                 
