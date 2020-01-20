@@ -24,6 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        <?= Html::a('Imprimmir', ['genPdf', 'id' => $model->id_factura], ['class' => 'btn btn-primary']) ?>
+
     </p>
 
     <?= DetailView::widget([
@@ -33,6 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_cliente',
             'ci_cliente',
             'fecha_factura',
+            'id_detalle_factura',
             'subtotal_factura',
             'iva_factura',
             'total_factura',

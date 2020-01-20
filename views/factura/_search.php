@@ -23,7 +23,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'fecha_factura') ?>
 
-    <?= $form->field($model, 'subtotal_factura') ?>
+    <?= $form->field($model, 'id_detalle_factura') ?>
+
+    <?php // echo $form->field($model, 'subtotal_factura') ?>
 
     <?php // echo $form->field($model, 'iva_factura') ?>
 

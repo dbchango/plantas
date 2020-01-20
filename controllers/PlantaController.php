@@ -8,7 +8,11 @@ use app\models\PlantaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\filters\AccessControl;
+use yii\data\Pagination;
+use yz\shoppingcart\CartPositionInterface;
+use yz\shoppingcart\CartPositionTrait;
+use yz\shoppingcart\Shoppingcart;
 /**
  * PlantaController implements the CRUD actions for Planta model.
  */
@@ -17,9 +21,47 @@ class PlantaController extends Controller
     /**
      * {@inheritdoc}
      */
+
+    public function actionCreateMPDF()
+    {
+        $mpdf = new mPDF();
+        $mpdf->WriteHTML($this->renderPartial('mpdf'));
+        $mpdf->Output();
+        exit;
+        //return $this->renderPartial('mpdf');
+    }
+    public function actionSamplePdf()
+    {
+        $mpdf = new mPDF;
+        $mpdf->WriteHTML('Sample Text');
+        $mpdf->Output();
+        exit;
+    }
+    public function actionForceDownloadPdf()
+    {
+        $mpdf = new mPDF();
+        $mpdf->WriteHTML($this->renderPartial('mpdf'));
+        $mpdf->Output('MyPDF.pdf', 'D');
+        exit;
+    }
+    //...............
+
+
+    
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index','create'], 
+                'rules' => [
+                    [
+                        'actions' => ['index', 'create', 'view', 'update'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -42,6 +84,21 @@ class PlantaController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
+    }
+
+
+    public function actionAddToCart($id)
+    {
+    $cart = new ShoppingCart();
+    $model = Planta::findOne($id);
+    if ($model) {
+        $cart->put($model, 1);
+        $data=$cart>getPosition();
+        return $this->render('cart',[
+                'data'=>$data,
+                ]);
+    }
+    throw new NotFoundHttpException();
     }
 
     /**

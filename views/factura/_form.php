@@ -18,6 +18,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'fecha_factura')->textInput() ?>
 
+    <?= $form->field($model, 'id_detalle_factura')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'subtotal_factura')->textInput() ?>
 
     <?= $form->field($model, 'iva_factura')->textInput() ?>

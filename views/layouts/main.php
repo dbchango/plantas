@@ -16,7 +16,11 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+ 
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,33 +37,33 @@ AppAsset::register($this);
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar navbar-expand-sm  navbar-inverse navbar-fixed-top ',
         ],
     ]);
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
+        'options' => ['class' => ' navbar-nav navbar-right '],
         'items' => [
+            ['label' => 'Nosotros', 'url' => ['/planta/index']],
+            ['label' => 'Catalogo', 'url' => ['/site/catalogo']],
+            //Crear vistas y agregar la funcion de la vista al controlador del sitio 'Compras del cliente'
+            
 
-            ['label' => 'Nosotros', 'url' => ['/site/about']],
-            ['label' => 'Contactanos', 'url' => ['/site/contact']],
+            Yii::$app->user->isGuest ? (['label' => ''])
+                :(['label' => 'Mi carrito', 'url' => ['/site/carrito']]
+            ),
 
-
-
-            ['label' => 'Comprar',  'items' => [
-                ['label' => 'Plantas', 'url' => ['/planta/index']],
-                ['label' => 'Tipos de Plantas', 'items' => [
-                    ['label' => 'Rosas'],
-                    ['label' => 'Claveles'],
+            Yii::$app->user->isGuest ? (['label' => ''])
+                :(['label' => 'Mi cuenta', 'items' => [
+                    ['label' => 'Editar Informacion', 'url' => ['/site/register']],
+                    ['label' => 'Historial compras', 'url' => ['/site/hcompras']],
                     ],
-                ],
-                ],
-            ],
-
+                ]
+            ),
 
             Yii::$app->user->isGuest ? (
                 ['label' => 'Opciones', 'items' => [
                     ['label' => 'Registrarse', 'url' => ['/site/register']],
-                    ['label' => 'Login', 'url' => ['/site/login']],
+                    ['label' => 'Entrar', 'url' => ['/site/login']],
                     ],
                 ]
                 
@@ -67,13 +71,8 @@ AppAsset::register($this);
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['label' => 'Opciones', 'items' => [
-                    ['label' => 'Editar Perfil', 'url' => ['/site/register']],
-                    ['label' => 'Compras(facturas)', 'url' => ['/factura/index']],
-                    ['class' => 'btn btn-link logout'],
-                    ],
-                ]
+                    'Salir (' . Yii::$app->user->identity->username . ')',
+                    ['class' => 'btn btn-link logout']
 
                 )
                 . Html::endForm()

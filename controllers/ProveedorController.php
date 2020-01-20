@@ -19,7 +19,19 @@ class ProveedorController extends Controller
      */
     public function behaviors()
     {
-        return [
+         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index','create'],
+                'rules' => [
+                    [
+                        'actions' => ['index'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

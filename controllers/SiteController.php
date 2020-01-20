@@ -14,12 +14,53 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\FormRegister;
 use app\models\Users;
+use mPDF;
+
 
 class SiteController extends Controller
 {
     /**
      * {@inheritdoc}
      */
+
+    public function actionCatalogo(){
+      
+      return $this->render("catalogo");
+    }
+
+    public function actionCarrito(){
+      return $this->render("carrito");
+    }
+
+    public function actionHcompras(){
+      return $this->render("hcompras");
+    }
+
+    public function actionCreateMPDF()
+    {
+        $mpdf = new mPDF();
+        $mpdf->WriteHTML($this->renderPartial('mpdf'));
+        $mpdf->Output();
+        exit;
+        //return $this->renderPartial('mpdf');
+    }
+    public function actionSamplePdf()
+    {
+        $mpdf = new mPDF;
+        $mpdf->WriteHTML('Sample Text');
+        $mpdf->Output();
+        exit;
+    }
+    public function actionForceDownloadPdf()
+    {
+        $mpdf = new mPDF();
+        $mpdf->WriteHTML($this->renderPartial('mpdf'));
+        $mpdf->Output('MyPDF.pdf', 'D');
+        exit;
+    }
+    //...............
+    
+
 
     private function randKey($str='', $long=0)
     {
@@ -124,24 +165,7 @@ class SiteController extends Controller
      $id = urlencode($user->id);
      $authKey = urlencode($user->authKey);
       
-     $subject = "Confirmar registro";
-     $body = "<h1>Haga click en el siguiente enlace para finalizar tu registro</h1>";
-     $body .= "<a href='http://yii.local/index.php?r=site/confirm&id=".$id."&authKey=".$authKey."'>Confirmar</a>";
-      
-     //Enviamos el correo
-     Yii::$app->mailer->compose()
-     ->setTo($user->email)
-     ->setFrom([Yii::$app->params["adminEmail"] => Yii::$app->params["title"]])
-     ->setSubject($subject)
-     ->setHtmlBody($body)
-     ->send();
-     
-     $model->username = null;
-     $model->email = null;
-     $model->password = null;
-     $model->password_repeat = null;
-     
-     $msg = "Enhorabuena, ahora sólo falta que confirmes tu registro en tu cuenta de correo";
+   
     }
     else
     {

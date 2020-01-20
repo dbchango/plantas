@@ -8,7 +8,7 @@ use Yii;
  * This is the model class for table "tipo_pago".
  *
  * @property int $id_tipo_pago
- * @property int $nombre_tipo_pago
+ * @property string $nombre_tipo_pago
  */
 class TipoPago extends \yii\db\ActiveRecord
 {
@@ -27,7 +27,7 @@ class TipoPago extends \yii\db\ActiveRecord
     {
         return [
             [['nombre_tipo_pago'], 'required'],
-            [['nombre_tipo_pago'], 'integer'],
+            [['nombre_tipo_pago'], 'string', 'max' => 50],
         ];
     }
 

@@ -17,7 +17,8 @@ class TipoPlantaSearch extends TipoPlanta
     public function rules()
     {
         return [
-            [['id_tipo', 'nombre_tipo'], 'integer'],
+            [['id_tipo'], 'integer'],
+            [['nombre_tipo'], 'safe'],
         ];
     }
 
@@ -58,8 +59,9 @@ class TipoPlantaSearch extends TipoPlanta
         // grid filtering conditions
         $query->andFilterWhere([
             'id_tipo' => $this->id_tipo,
-            'nombre_tipo' => $this->nombre_tipo,
         ]);
+
+        $query->andFilterWhere(['like', 'nombre_tipo', $this->nombre_tipo]);
 
         return $dataProvider;
     }

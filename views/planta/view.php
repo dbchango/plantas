@@ -23,7 +23,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
             ],
+
         ]) ?>
+        <?= Html::a('Update', ['createMPDF', 'id' => $model->id_planta], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <?= DetailView::widget([

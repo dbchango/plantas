@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models\TipoPlanta;
+use yii\helpers\ArrayHelper;
+use yii\jui\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Planta */
@@ -14,7 +17,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'nombre_planta')->textInput() ?>
 
-    <?= $form->field($model, 'id_tipo')->textInput() ?>
+    <?= $form->field($model, 'id_tipo')->dropDownList(ArrayHelper::map(TipoPlanta::find()->all(),'id_tipo','nombre_tipo'),['prompt'=>'Seleccione...']) ?>
 
     <?= $form->field($model, 'precio_planta')->textInput() ?>
 

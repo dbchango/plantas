@@ -124,4 +124,27 @@ class FacturaController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+    public function actionGenPdf($id_factura,
+            $id_cliente,
+            $ci_cliente,
+            $fecha_factura,
+            $id_detalle_factura,
+            $subtotal_factura,
+            $iva_factura,
+            $total_factura){
+        $pdf_content=$this->render('view-pdf', ['model' => $this->findModel($id_factura,
+            $id_cliente,
+            $ci_cliente,
+            $fecha_factura,
+            $id_detalle_factura,
+            $subtotal_factura,
+            $iva_factura,
+            $total_factura),]);
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->WriteHTML($pdf_content);
+        $mpdf->Output();
+        exit;
+    }
+
 }

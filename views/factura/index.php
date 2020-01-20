@@ -30,7 +30,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_cliente',
             'ci_cliente',
             'fecha_factura',
-            'subtotal_factura',
+            'id_detalle_factura',
+            //'subtotal_factura',
             //'iva_factura',
             //'total_factura',
 

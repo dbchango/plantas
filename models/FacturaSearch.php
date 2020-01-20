@@ -18,6 +18,7 @@ class FacturaSearch extends Factura
     {
         return [
             [['id_factura', 'id_cliente', 'ci_cliente', 'fecha_factura', 'subtotal_factura', 'iva_factura', 'total_factura'], 'integer'],
+            [['id_detalle_factura'], 'safe'],
         ];
     }
 
@@ -65,6 +66,8 @@ class FacturaSearch extends Factura
             'iva_factura' => $this->iva_factura,
             'total_factura' => $this->total_factura,
         ]);
+
+        $query->andFilterWhere(['like', 'id_detalle_factura', $this->id_detalle_factura]);
 
         return $dataProvider;
     }

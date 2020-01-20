@@ -9,7 +9,7 @@ use yii\widgets\ActiveForm;
 <?php $form = ActiveForm::begin([
     'method' => 'post',
  'id' => 'formulario',
- 'enableClientValidation' => false,
+ 'enableClientValidation' => true,
  'enableAjaxValidation' => true,
 ]);
 ?>

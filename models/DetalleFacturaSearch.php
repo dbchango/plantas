@@ -17,7 +17,8 @@ class DetalleFacturaSearch extends DetalleFactura
     public function rules()
     {
         return [
-            [['id_detalle', 'valor_venta', 'cantidad_venta', 'id_planta', 'id_factura'], 'integer'],
+            [['id_detalle', 'cantidad_venta', 'id_planta', 'id_factura'], 'integer'],
+            [['valor_venta'], 'number'],
         ];
     }
 

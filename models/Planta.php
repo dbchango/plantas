@@ -3,25 +3,40 @@
 namespace app\models;
 
 use Yii;
+use yz\shoppingcart\CartPositionInterface;
+use yz\shoppingcart\CartPositionTrait;
 
 /**
  * This is the model class for table "planta".
  *
  * @property int $id_planta
- * @property int $nombre_planta
+ * @property string $nombre_planta
  * @property int $id_tipo
  * @property int $precio_planta
- * @property int $fecha_compra
+ * @property string $fecha_compra
  * @property int $vida_util
  * @property int $stock
  * @property int $cantidad_compra
- * @property int $precio_compra
+ * @property float $precio_compra
  */
-class Planta extends \yii\db\ActiveRecord
+class Planta extends \yii\db\ActiveRecord implements CartPositionInterface
 {
     /**
      * {@inheritdoc}
      */
+
+    use CartPositionTrait;
+
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
     public static function tableName()
     {
         return 'planta';
@@ -34,7 +49,10 @@ class Planta extends \yii\db\ActiveRecord
     {
         return [
             [['nombre_planta', 'id_tipo', 'precio_planta', 'fecha_compra', 'vida_util', 'stock', 'cantidad_compra', 'precio_compra'], 'required'],
-            [['nombre_planta', 'id_tipo', 'precio_planta', 'fecha_compra', 'vida_util', 'stock', 'cantidad_compra', 'precio_compra'], 'integer'],
+            [['id_tipo', 'precio_planta', 'vida_util', 'stock', 'cantidad_compra'], 'integer'],
+            [['fecha_compra'], 'safe'],
+            [['precio_compra'], 'number'],
+            [['nombre_planta'], 'string', 'max' => 11],
         ];
     }
 
